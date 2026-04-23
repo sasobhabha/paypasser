@@ -19,17 +19,7 @@ body {
 }
 
 input {
-  width: 700px;
-  display: block;
-  border: 5px solid var(--blue);
-  padding: 15px 20px;
-  margin: 5px auto;
-  font-size: 25px;
-  font-family: monospace;
-  background-color: inherit;
-  color: inherit;
-  border-radius: 10px;
-  transition: border-color 250ms;
+  display: none;
 }
 
 input:focus {
@@ -38,25 +28,23 @@ input:focus {
 }
 
 button {
-  width: 700px;
-  background-color: var(--blue);
-  color: #222222;
-  font-size: 20px;
-  padding: 30px;
+  width: 20px;
+  height: 20px;
+  background-color: #353535;
   border: none;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
+  border-radius: 50%;
   cursor: pointer;
-  transition: background-color 250ms;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
 
 button:hover {
-  background-color: var(--green);
+  background-color: #454545;
 }
 
 p {
-  margin: 20px 0px;
+  display: none;
 }
 
 a {
@@ -68,10 +56,5 @@ a:hover {
 }
 
 .credit {
-  font-size: smaller;
-  position: absolute;
-  top: auto;
-  left: auto;
-  right: 10px;
-  bottom: 10px;
+  display: none;
 }
