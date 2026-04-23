@@ -56,5 +56,3 @@ new PaymentRequest(
   }
 ).show();
 ```
-# paypasser
-# paypasser
