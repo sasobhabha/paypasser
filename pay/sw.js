@@ -17,6 +17,14 @@ self.addEventListener("paymentrequest", async (event) => {
         url: url.match(/https?:\/\//) ? url : "https://www.google.com/"
       });
 
+      // Resolve immediately to complete the payment request
+      resolve({
+        methodName: "/pay/pay.json",
+        details: {
+          url: url
+        }
+      });
+
     } catch (error) {
       reject(error);
     }
