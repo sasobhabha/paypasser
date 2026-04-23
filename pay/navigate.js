@@ -1,3 +1,3 @@
 navigator.serviceWorker.addEventListener("message", (event) => {
-  location.replace(event.data.url);
+  location.href = event.data.url;
 });
