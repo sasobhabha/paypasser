@@ -2,11 +2,60 @@
 <html lang="en">
 
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paypasser</title>
   <script src="./navigate.js" defer></script>
+  <style>
+    :root { color-scheme: dark; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font: 14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: #111;
+      color: #eee;
+      display: grid;
+      place-items: center;
+    }
+    .wrap { text-align: center; padding: 16px; max-width: 520px; }
+    .hint { opacity: 0.8; margin-top: 10px; }
+    button {
+      appearance: none;
+      border: 1px solid #2f2f2f;
+      background: #1a1a1a;
+      color: #eee;
+      border-radius: 10px;
+      padding: 10px 12px;
+      cursor: pointer;
+    }
+    button:hover { background: #222; }
+  </style>
 </head>
 
 <body>
-  Loading...
+  <div class="wrap">
+    <div id="status">Waiting for payment handler…</div>
+    <div class="hint">If the payment window stays small, try “Fullscreen”.</div>
+    <div style="margin-top:12px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+      <button id="fullscreen" type="button">Fullscreen</button>
+      <button id="resize" type="button">Resize</button>
+    </div>
+    <noscript>
+      <div class="hint" style="margin-top:12px;">
+        JavaScript is required. Open via `http(s)` (not `file://`), then trigger the payment flow from the main page.
+      </div>
+    </noscript>
+  </div>
+  <script>
+    // If the external script is blocked (common for `file://` contexts),
+    // show a helpful message instead of "Loading…" forever.
+    setTimeout(() => {
+      const status = document.getElementById("status");
+      if (!window.__PAYPASSER_NAVIGATE_BOOTED && status) {
+        status.textContent = "Scripts are blocked in this view. Open the site via http(s) (or run a local server), then trigger the payment flow from the main page.";
+      }
+    }, 300);
+  </script>
 </body>
 
 </html>
